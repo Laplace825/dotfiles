@@ -1,4 +1,4 @@
-# private-neovim-config
+# My dotfile
 
 ## install 
 
