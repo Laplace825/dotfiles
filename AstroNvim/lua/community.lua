@@ -4,21 +4,22 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  --@NOTE: language pack
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.cmake" },
-  { import = "astrocommunity.pack.bash" },
-  -- import/override with your plugins folder
-  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
-  { import = "astrocommunity.project.projectmgr-nvim" },
-  { import = "astrocommunity.completion.copilot-lua" },
+	"AstroNvim/astrocommunity",
+	--@NOTE: language pack
+	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.pack.rust" },
+	{ import = "astrocommunity.pack.cmake" },
+	{ import = "astrocommunity.pack.bash" },
+	{ import = "astrocommunity.pack.typst" },
+	-- import/override with your plugins folder
+	{ import = "astrocommunity.markdown-and-latex.markview-nvim" },
+	{ import = "astrocommunity.project.projectmgr-nvim" },
+	{ import = "astrocommunity.completion.copilot-lua" },
 
-  --@NOTE: colorscheme
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
-  { import = "astrocommunity.colorscheme.tokyodark-nvim" },
-  { import = "astrocommunity.colorscheme.vscode-nvim" },
-  { import = "astrocommunity.colorscheme.github-nvim-theme" },
+	--@NOTE: colorscheme
+	{ import = "astrocommunity.colorscheme.catppuccin" },
+	{ import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+	{ import = "astrocommunity.colorscheme.tokyodark-nvim" },
+	{ import = "astrocommunity.colorscheme.vscode-nvim" },
+	{ import = "astrocommunity.colorscheme.github-nvim-theme" },
 }

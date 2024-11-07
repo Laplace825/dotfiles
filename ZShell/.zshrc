@@ -81,15 +81,16 @@ plugins=(
 	git
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
-	#archlinux
+	# archlinux
     vi-mode
+    poetry
 )
 
 source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
-export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=zh_CN.UTF-8
@@ -102,11 +103,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export DOT_FILE_DIR="${HOME}/.dotfile/"
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

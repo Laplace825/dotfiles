@@ -8,7 +8,9 @@ if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 vim.filetype.add {
   extension = {
     typ = "typst",
+    zshrc = "bash",
   },
+
   -- filename = {
   --   ["Foofile"] = "fooscript",
   -- },

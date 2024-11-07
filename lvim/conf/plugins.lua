@@ -1,7 +1,7 @@
-local M = {}
+-- local M = {}
 
 
-M = {
+return {
     {
         'chomosuke/typst-preview.nvim',
         lazy = false, -- or ft = 'typst'
@@ -330,4 +330,4 @@ M = {
 }
 
 
-return M
+-- return M

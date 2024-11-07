@@ -178,6 +178,16 @@ alias vide="neovide"
 alias lvide="neovide --neovim-bin ${HOME}/.local/bin/lvim"
 ```
 
+## kitty
+
+使用的默认模拟终端为`kitty`，也保留了 Konsole，不过一般是用的 kitty。
+What the most amazing，在0.37版本`kitty`引入了类似neovide的光标动画，虽然
+没有那么多特效，而且就体验来说貌似比较卡顿，但是shell体验简直***amazing***。
+
+```bash
+ln -s ${DOT_FILE_DIR}/kitty  ~/.config/kitty
+```
+
 ## clang-format
 
 为了方便我直接丢在`${HOME}` 下，所以直接做的链接。
