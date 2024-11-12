@@ -9,14 +9,14 @@ else
 				options = {
 					opt = { -- configure vim.opt options
 						-- configure font
-						guifont = "FiraCode Nerd Font:h14",
+						guifont = "FiraCode Nerd Font:h16",
 						-- line spacing
 						linespace = 0,
 					},
 					g = { -- configure vim.g variables
 						-- configure scaling
-						neovide_transparency = 0.9,
-						neovide_refresh_rate = 144,
+						neovide_transparency = 0.95,
+						neovide_refresh_rate = 60,
 						neovide_cursor_vfx_mode = "railgun",
 						neovide_cursor_vfx_particle_density = 80.0,
 						neovide_scale_factor = 1,
@@ -25,10 +25,10 @@ else
 
 						neovide_cursor_antialiasing = true,
 						-- configure padding
-						neovide_padding_top = 0,
-						neovide_padding_bottom = 0,
-						neovide_padding_right = 0,
-						neovide_padding_left = 0,
+						neovide_padding_top = 20,
+						neovide_padding_bottom = 5,
+						neovide_padding_right = 20,
+						neovide_padding_left = 20,
 					},
 				},
 			},

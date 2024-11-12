@@ -59,6 +59,7 @@ alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
 alias gst="git status"
+alias vide="neovide"
 
 # ctrl+/ to accept autosuggest
 bindkey "^_" autosuggest-accept
