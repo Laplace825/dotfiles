@@ -83,14 +83,16 @@ return {
 					desc = "ToggleTerm vertical split",
 				},
 
-				["<A-j>"] = { ":m .+1<CR>==", desc = "Move line up" },
-				["<A-k>"] = { ":m .-2<CR>==", desc = "Move line down" },
+				["<M-j>"] = { ":m .+1<CR>==", desc = "Move line up" },
+				["<M-k>"] = { ":m .-2<CR>==", desc = "Move line down" },
 
-				["<A-v>"] = { "<Cmd>vsplit<CR>", desc = "Split vertical" },
-				["<A-h>"] = { "<Cmd>split<CR>", desc = "Split horizontal" },
+				["<M-v>"] = { "<Cmd>vsplit<CR>", desc = "Split vertical" },
+				["<M-h>"] = { "<Cmd>split<CR>", desc = "Split horizontal" },
 
 				["<TAB>rr"] = { "<Cmd>RustLsp run<CR>", desc = "Rust Run" },
 				["<TAB>gr"] = { "<Cmd>GoRun<CR>", desc = "Go Run" },
+
+				["U"] = { "<C-r>", desc = "Undo" },
 
 				["<Leader>n"] = false,
 				-- ["<Leader>tp"] = false,
@@ -107,11 +109,11 @@ return {
 			},
 			v = {
 
-				["<A-j>"] = { ":m '>+1<CR>gv-gv", desc = "Move block up" },
-				["<A-k>"] = { ":m '<-2<CR>gv-gv", desc = "Move block down" },
+				["<M-j>"] = { ":m '>+1<CR>gv-gv", desc = "Move block up" },
+				["<M-k>"] = { ":m '<-2<CR>gv-gv", desc = "Move block down" },
 
-				["<A-v>"] = { "<Cmd>vsplit<CR>", desc = "Split vertical" },
-				["<A-h>"] = { "<Cmd>split<CR>", desc = "Split horizontal" },
+				["<M-v>"] = { "<Cmd>vsplit<CR>", desc = "Split vertical" },
+				["<M-h>"] = { "<Cmd>split<CR>", desc = "Split horizontal" },
 			},
 
 			t = {
