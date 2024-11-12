@@ -1,45 +1,23 @@
-# My dotfile
+# My dotfile The MacOS Branch
 
 ## install 
 
 以后可能会写成一个简单的脚本，不过选择仍然需要手动配置。
 
-**请注意**，下面会将仓库clone到`${HOME}/.dotfile`中。
+**请注意**，下面会将仓库clone到`${HOME}/dotfiles`中。
 
 ```bash
-git clone --depth 1 https://github.com/Laplace825/dotfiles.git ~/.dotfile/
+git clone -b macos --depth 1 https://github.com/Laplace825/dotfiles.git ~/dotfiles/
 ```
 
-一些个人软件配置, **由于个人已经转向了 Arch Linux, 部分配置可能只在 Arch 系上更为方便**
-同时，我在`.zshrc`文件中export了一些环境变量。你可以选择先配置zsh，或者先在bash中export。
+我在`.zshrc`文件中export了一些环境变量。你可以选择先配置zsh，或者先在bash中export。
 
 ```bash
-export DOT_FILE_DIR="${HOME}/.dotfile"
+export DOT_FILE_DIR="${HOME}/dotfiles"
 ```
 
-## Hyprland
-这里是直接使用[JaKooLit/Arch-Hyprland](https://github.com/JaKooLit/Arch-Hyprland)安装脚本，
-需要尽可能保持干净的系统环境再进行安装。
-
-+ `waybar`配置修改
-
-添加了部分 module
 
 ## Zshell
-
-+ 安装`zsh`
-```bash
-## debian like
-# 更新软件源
-sudo apt update && sudo apt upgrade -y
-# 安装 zsh git curl
-sudo apt install zsh git
-curl -y
-
-## arch like
-sudo pacman -Syu
-sudo pacman -Sy git zsh
-```
 
 + 安装`oh-my-zsh`
 
@@ -51,6 +29,8 @@ sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"
 ```
 
 + 安装`powerlevel10k`
+
+貌似已经处于半废弃的状态？目前已经转向使用`starship`
 
 ```bash
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -64,37 +44,11 @@ cp ${DOT_FILE_DIR}/p10kconf/.p10k.zsh ~/.p10k.zsh
 这里是我安装的一些常用工具
 
 ```bash
-## arch like
-sudo pacman -Sy eza fastfetch fzf fd bat glow lazygit
-paru -S yazi-git zsh-autosuggestions zsh-syntax-highlighting
+brew install neovim eza fastfetch fzf fd bat glow lazygit
+brew install yazi zsh-autosuggestions zsh-syntax-highlighting
 ```
 
-+ 配置，以`waybar`为例子
-
-大部分配置文件默认在`${HOME}/.config` 目录下的，一般建立文件链接就行。
-部分文件可能因为有独立的`plugins`(例如yazi)，所以对yazi只进行特定文件做链接。
-
-```bash
-ln -s ${DOT_FILE_DIR}/waybar ~/.config/waybar
-```
-
-## Lunarvim Or AstroNvim
-
-官网地址[lunarvim](https://www.lunarvim.org/zh-Hans/docs/installation)
-
-+ 安装`lunarvim`
-
-建议还是使用官网的安装脚本，目前打算移步使用 `AstroNvim`。
-目前`lunarvim`的主要维护者转向了`AstroNvim`，可能较长一段时间都不会有大版本更迭。 
-
-```bash
-LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
-```
-
-+ 安装 `AstroNvim`
-
-由于 `lvim` 本身是用`local/bin/lvim` 脚本启动，并且也能发现其配置文件一般是
-在 `lunarvim` or `lvim` 文件夹，不影响 `nvim`，所以两个 distro 不会冲突。
+## AstroNvim
 
 ```bash
 #  将原来的 nvim 配置备份(optional but Recommand)
@@ -117,7 +71,13 @@ ln -s ${DOT_FILE_DIR}/AstroNvim/lua/<Which> ~/.config/nvim/lua/<Which>
 
 ## 安装`neovide`
 
-### 基于`Rust`
+### 基于`brew`
+
+```bash
+brew install neovide
+```
+
+### 基于`Cargo`
 
 + 安装`Rust`
 
@@ -152,41 +112,30 @@ git-fetch-with-cli = true
 cargo install --git https://github.com/neovide/neovide
 ```
 
-### 基于`snap`
-
-```bash
-sudo apt install -y curl \
-    gnupg ca-certificates git \
-    gcc-multilib g++-multilib cmake libssl-dev pkg-config \
-    libfreetype6-dev libasound2-dev libexpat1-dev libxcb-composite0-dev \
-    libbz2-dev libsndio-dev freeglut3-dev libxmu-dev libxi-dev libfontconfig1-dev \
-    libxcursor-dev
-```
-
-### archlinux 
-
-```bash
-sudo pacmans -S neovide
-```
 
 ### `.zshrc`添加
+
+这里也可以不进行添加，直接使用repo的`.zshrc`也行，但是可能你想自定义。
 
 ```bash
 # 默认启用 AstroNvim 配置
 alias vide="neovide"
-# 启用 lunarvim 配置
-alias lvide="neovide --neovim-bin ${HOME}/.local/bin/lvim"
 ```
 
 ## kitty
 
-使用的默认模拟终端为`kitty`，也保留了 Konsole，不过一般是用的 kitty。
 What the most amazing，在0.37版本`kitty`引入了类似neovide的光标动画，虽然
-没有那么多特效，而且就体验来说貌似比较卡顿，但是shell体验简直***amazing***。
+没有那么多特效，但是shell体验简直***amazing***。
+
+由于macos的`option`键和`Alt`键需要映射一下，这里的配置文件额外加入了macos相关。
 
 ```bash
 ln -s ${DOT_FILE_DIR}/kitty  ~/.config/kitty
 ```
+
+## WezTerm with Starship
+
+<!-- TODO: -->
 
 ## clang-format
 
@@ -195,7 +144,6 @@ ln -s ${DOT_FILE_DIR}/kitty  ~/.config/kitty
 ```bash
 ln -s ${DOT_FILE_DIR}/.clang-format ~/.clang-format
 ```
-
 
 ## TODOS
 
