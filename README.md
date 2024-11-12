@@ -19,7 +19,9 @@ export DOT_FILE_DIR="${HOME}/dotfiles"
 
 ## Zshell
 
-+ 安装`oh-my-zsh`
++ 安装`oh-my-zsh`(optional)
+
+可用选择使用`omz`的配置，或者使用`starship`
 
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -28,16 +30,9 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"
 ```
 
-+ 安装`powerlevel10k`
++ 安装`starship`(optional)
 
-貌似已经处于半废弃的状态？目前已经转向使用`starship`
-
-```bash
-git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# 使用自定义的配置
-cp ${DOT_FILE_DIR}/p10kconf/.p10k.zsh ~/.p10k.zsh
-```
+<!-- TODO: -->
 
 + 安装CLI工具
 

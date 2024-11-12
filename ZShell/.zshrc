@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -81,7 +74,6 @@ plugins=(
 	git
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
-	# archlinux
     vi-mode
     poetry
 )
@@ -93,26 +85,29 @@ source "$ZSH/oh-my-zsh.sh"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=zh_CN.UTF-8
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# homebrew for zsh using ustc mirror
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+
+# for llvm
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind" 
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+
 # @note: DOT_FILE_DIR
-export DOT_FILE_DIR="${HOME}/.dotfile/"
+export DOT_FILE_DIR="${HOME}/dotfiles"
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
 export https_proxy="http://127.0.0.1:7897"
 export http_proxy="http://127.0.0.1:7897"
 export all_proxy="socks5://127.0.0.1:7897"
-export MY_LVIM_CONFIG_FOLDER="$HOME/.config/lvim"
 
 # @note: rustup mirror site
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
@@ -140,20 +135,11 @@ alias cat="bat -p"
 alias show-pic="kitty +kitten icat"
 alias tree="eza --tree --ignore-glob .git"
 
-# @note: neovide with AstroNvim (default use nvim)
-alias vide="neovide"
-# @note: neovide with lunarNvim (specific use lvim)
-alias lvide="neovide --neovim-bin lvim"
-
 # ctrl+/ to accept autosuggest
 bindkey "^_" autosuggest-accept
 
 # bat theme 
 export BAT_THEME=OneHalfDark
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 # @note: Now We can use <C-t> to match dirs better
 # <Alt-c> match file better
@@ -185,19 +171,8 @@ _fzf_comprun(){
     esac
 }
 
-export WALLPAPER_ENGINE_ASSETS="${HOME}/.local/share/Steam/steamapps/common/wallpaper_engine/assets"
-export WALLPAPER_CONTENT="$HOME/.local/share/Steam/steamapps/workshop/content"
-
-function dwall() {
-    local sel_file=$(ls -D --icons=never $WALLPAPER_CONTENT/431960 | fzf --preview-window=down:70% --preview "kitty +kitten icat $WALLPAPER_CONTENT/431960/{}/preview.gif")
-    linux-wallpaperengine --disable-mouse --clamping border --silent --assets-dir "$WALLPAPER_ENGINE_ASSETS $WALLPAPER_CONTENT/431960/$sel_file" $1 $2 
-}
-
-function show-wall(){
-    local files=$(find $WALLPAPER_CONTENT/431960/ -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" \) -print)
-    local file=$(echo $files | fzf --preview "kitty +kitten icat {}" --preview-window=down)
-    kitty +kitten icat $file
-}
+# the z jump tool
+eval "$(zoxide init zsh)"
 
 # yazi file manager
 function y() {
@@ -211,11 +186,12 @@ function y() {
 
 # @note: we use `nvm use <node version>` to activate a specific node version. 
 # Add default node to path
-export PATH="$PATH:$HOME/.nvm/versions/node/v22.7.0/bin"
+export PATH="$PATH:$HOME/.nvm/versions/node/v23.1.0/bin"
 
 # load nvm
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+# export NVM_DIR="$HOME/.nvm"
+# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
-# the z jump tool
-eval "$(zoxide init zsh)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
