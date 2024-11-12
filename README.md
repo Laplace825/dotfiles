@@ -32,7 +32,11 @@ sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"
 
 + 安装`starship`(optional)
 
-<!-- TODO: -->
+ ```bash
+ brew install starship
+ ```
+
+在`zshrc`文件中已经添加了`starship`的启动初始化，当然，下面的`zsh-autosuggestions`和`zsh-syntax-highlighting`也已经添加。
 
 + 安装CLI工具
 
@@ -130,7 +134,21 @@ ln -s ${DOT_FILE_DIR}/kitty  ~/.config/kitty
 
 ## WezTerm with Starship
 
-<!-- TODO: -->
+### WezTerm
+
+`WezTerm`相关配置直接链接就行，键位都是默认的。
+
+```bash
+ln -s ${DOT_FILE_DIR}/wezterm ~/.config/wezterm
+```
+
+### Starship
+
+使用的主题是 `preset` 的`MacOS`主题，当然，`starship`文件夹下还有另一个预设主题。把想使用的主题文件名改为`starship.toml`即可。
+
+```bash
+ln -s ${DOT_FILE_DIR}/starship/starship.toml ~/.config/starship.toml
+```
 
 ## clang-format
 
