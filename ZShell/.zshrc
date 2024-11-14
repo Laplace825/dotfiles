@@ -1,4 +1,6 @@
+FPATH="${HOME}/.zfunc:${FPATH}"
 autoload -Uz compinit && compinit
+
 eval "$(starship init zsh)"
 
 # @note: Now We can use <C-t> to match dirs better
@@ -14,6 +16,7 @@ source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 
 # vi mod 
 set -o vi 
