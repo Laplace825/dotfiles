@@ -1,6 +1,6 @@
 # My dotfile The MacOS Branch
 
-## install 
+## install
 
 以后可能会写成一个简单的脚本，不过选择仍然需要手动配置。
 
@@ -15,7 +15,6 @@ git clone -b macos --depth 1 https://github.com/Laplace825/dotfiles.git ~/dotfil
 ```bash
 export DOT_FILE_DIR="${HOME}/dotfiles"
 ```
-
 
 ## Zshell
 
