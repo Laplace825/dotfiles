@@ -27,7 +27,7 @@ AllowShortIfStatementsOnASingleLine: WithoutElse
 # AlwaysBreakAfterDefinitionReturnType: None
 # AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: Yes
+AlwaysBreakTemplateDeclarations: false
 BinPackArguments: true
 BinPackParameters: true
 BraceWrapping:
@@ -152,7 +152,7 @@ SortIncludes: CaseInsensitive
 SortUsingDeclarations: false
 # SpaceAfterCStyleCast: false
 # SpaceAfterLogicalNot: false
-SpaceAfterTemplateKeyword: true
+SpaceAfterTemplateKeyword: false
 # SpaceBeforeAssignmentOperators: true
 # SpaceBeforeCpp11BracedList: false
 # SpaceBeforeCtorInitializerColon: true
@@ -162,7 +162,7 @@ SpaceBeforeRangeBasedForLoopColon: true
 # SpaceInEmptyBlock: false
 # SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
-SpacesInAngles: Always
+SpacesInAngles: Leave
 # SpaceInContainerLiterals: true
 # SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
