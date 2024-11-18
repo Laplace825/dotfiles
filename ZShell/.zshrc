@@ -115,3 +115,7 @@ export PATH="$PATH:$HOME/.nvm/versions/node/v23.1.0/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+function  ChooseStarShipTheme() {
+	bash "${DOT_FILE_DIR}/scripts/ChooseStarShipTheme.sh"
+}
