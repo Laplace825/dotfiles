@@ -119,3 +119,5 @@ export NVM_DIR="$HOME/.nvm"
 function  ChooseStarShipTheme() {
 	bash "${DOT_FILE_DIR}/scripts/ChooseStarShipTheme.sh"
 }
+
+export PATH="$PATH:${HOME}/app/ispc-macOS_arm64/bin"
