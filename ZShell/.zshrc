@@ -125,6 +125,7 @@ source "$HOME/usr_pyenv/bin/activate"
 # completion for pipx
 eval "$(register-python-argcomplete pipx)"
 
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -219,3 +220,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # the z jump tool
 eval "$(zoxide init zsh)"
+
+export PATH="${PATH}:${HOME}/app/cs149/ispc/bin"
