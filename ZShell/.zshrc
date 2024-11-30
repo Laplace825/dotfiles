@@ -119,11 +119,11 @@ export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 # Add user py env
-export PATH="$PATH:$HOME/usr_pyenv/bin/"
-source "$HOME/usr_pyenv/bin/activate"
+# export PATH="$PATH:$HOME/usr_pyenv/bin/"
+# source "$HOME/usr_pyenv/bin/activate"
 
 # completion for pipx
-eval "$(register-python-argcomplete pipx)"
+# eval "$(register-python-argcomplete pipx)"
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -222,3 +222,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 
 export PATH="${PATH}:${HOME}/app/cs149/ispc/bin"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
