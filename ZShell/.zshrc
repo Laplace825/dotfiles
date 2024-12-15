@@ -119,3 +119,6 @@ export NVM_DIR="$HOME/.nvm"
 function  ChooseStarShipTheme() {
 	bash "${DOT_FILE_DIR}/scripts/ChooseStarShipTheme.sh"
 }
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

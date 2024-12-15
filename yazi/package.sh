@@ -17,7 +17,6 @@
 
 packages=(
   "yazi-rs/plugins:max-preview"
-  "Reledia/glow"
   "AnirudhG07/nbpreview"
   "hankertrix/augment-command"
   "yazi-rs/plugins:git"
