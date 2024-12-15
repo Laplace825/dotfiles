@@ -91,6 +91,38 @@ return {
 
 				["<TAB>rr"] = { "<Cmd>RustLsp run<CR>", desc = "Rust Run" },
 				["<TAB>gr"] = { "<Cmd>GoRun<CR>", desc = "Go Run" },
+				["<TAB>cb"] = {
+					function()
+						vim.cmd.vnew()
+						vim.cmd.term()
+						vim.api.nvim_win_set_width(0, 80)
+						local job_id = vim.bo.channel
+						vim.fn.chansend(job_id, "cmake -S . -B ./build -G Ninja && ninja -C build -v\r\n")
+						vim.fn.chansend(job_id, "exit\r\n")
+					end,
+					desc = "C++ build",
+				},
+
+				["<TAB>cr"] = {
+					function()
+						vim.cmd.vnew()
+						vim.cmd.term()
+						vim.api.nvim_win_set_width(0, 80)
+						local job_id = vim.bo.channel
+
+						-- walker all files in ./bin
+						local files = vim.fn.systemlist("/bin/ls ./bin")
+						local executables = {}
+						for _, file in ipairs(files) do
+							if vim.fn.executable("./bin/" .. file) == 1 then
+								executables = vim.list_extend(executables, { "./bin/" .. file })
+							end
+						end
+						local joint = table.concat(executables, " && ")
+						vim.fn.chansend(job_id, joint .. "\r\n")
+					end,
+					desc = "C++ Run",
+				},
 
 				["U"] = { "<C-r>", desc = "Undo" },
 
