@@ -60,6 +60,15 @@ return {
 			-- the key is the server that is being setup with `lspconfig`
 			-- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
 			-- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+			tinymist = function(_, opts)
+				require("lspconfig").tinymist.setup({
+					offset_encoding = "utf-8",
+					root_dir = function(fname, bufnr)
+						-- Add files/folders here that indicate the root of a project
+						return vim.fn.getcwd()
+					end,
+				})
+			end,
 		},
 		-- Configure buffer local auto commands to add when attaching a language server
 		autocmds = {

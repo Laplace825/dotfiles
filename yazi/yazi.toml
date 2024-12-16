@@ -6,8 +6,6 @@ block = true
 for = "unix"
 [plugin]
 prepend_previewers = [
-    # markdown previewer
-    { name = "*.md", run = "glow" },
     # Archive previewer
     { mime = "application/*zip", run = "ouch" },
     { mime = "application/x-tar", run = "ouch" },
