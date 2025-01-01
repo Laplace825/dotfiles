@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+alias ls="eza --icons=always --no-user -ag"
+alias ll="ls -lah"
+alias l="ls -lah"
+alias cat="bat -p"
+alias wshow-pic="wezterm imgcat"
+alias kshow-pic="kitten icat"
+alias tree="eza --tree --ignore-glob .git"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gst="git status"
+alias vide="neovide"
