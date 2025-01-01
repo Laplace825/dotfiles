@@ -75,9 +75,10 @@ return {
 			tinymist = function(_, opts)
 				require("lspconfig").tinymist.setup({
 					offset_encoding = "utf-8",
+					formatter_mode = "typstyle",
 					root_dir = function(fname, bufnr)
 						-- Add files/folders here that indicate the root of a project
-						return root_dir or vim.fn.getcwd()
+						return vim.fn.getcwd()
 					end,
 				})
 			end,
