@@ -16,24 +16,25 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # @note: DOT_FILE_DIR
 export DOT_FILE_DIR="${HOME}/dotfiles"
 
-source "${DOT_FILE_DIR}/ZShell/export.sh"
+ZSHELL_ROOT_DIR=${DOT_FILE_DIR}/ZShell
+
+source "${ZSHELL_ROOT_DIR}/export.zsh"
 
 # vi mod 
 set -o vi 
 
-source "${DOT_FILE_DIR}/ZShell/alias.sh"
+source "${ZSHELL_ROOT_DIR}/alias.zsh"
 
 # ctrl+/ to accept autosuggest
 bindkey "^_" autosuggest-accept
 
-set thrid_partys=$(/bin/ls ${DOT_FILE_DIR}/ZShell/thrid-party)
-for thrid_party in ${thrid_partys}; do
-		source "${DOT_FILE_DIR}/ZShell/thrid-party/${thrid_party}"
-done
-unset thrid_partys
+function _source_dir(){
+	DIR="${ZSHELL_ROOT_DIR}/$1";if [ -d "$DIR" ]; then
+		for zf in $(/bin/ls "$DIR"/*.zsh 2>/dev/null); do
+			[ -f "$zf" ] && source "$zf"
+		done
+	fi
+}
 
-set my_func=$(/bin/ls "${DOT_FILE_DIR}/ZShell/my_func")
-for func in ${my_func}; do
-		source "${DOT_FILE_DIR}/ZShell/my_func/${func}"
-done
-unset my_func
+_source_dir 'thrid-party'
+_source_dir 'my_func'

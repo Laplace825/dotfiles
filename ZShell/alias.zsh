@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 alias ls="eza --icons=always --no-user -ag"
 alias ll="ls -lah"
 alias l="ls -lah"
