@@ -15,15 +15,10 @@ prepend_previewers = [
     { mime = "application/x-xz", run = "ouch" },
 ]
 [preview]
-max_width = 1000
-max_height = 1000
+max_width = 2000
+max_height = 2000
 
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"
-run = "git"
-
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*/"
 run = "git"
