@@ -18,7 +18,7 @@ export DOT_FILE_DIR="${HOME}/dotfiles"
 
 ## Zshell
 
-+ 安装`oh-my-zsh`(optional)
+- 安装`oh-my-zsh`(optional)
 
 可用选择使用`omz`的配置，或者使用`starship`
 
@@ -29,15 +29,15 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"
 ```
 
-+ 安装`starship`(optional)
+- 安装`starship`(optional)
 
- ```bash
- brew install starship
- ```
+```bash
+brew install starship
+```
 
 在`zshrc`文件中已经添加了`starship`的启动初始化，当然，下面的`zsh-autosuggestions`和`zsh-syntax-highlighting`也已经添加。
 
-+ 安装CLI工具
+- 安装CLI工具
 
 这里是我安装的一些常用工具
 
@@ -77,7 +77,7 @@ brew install neovide
 
 ### 基于`Cargo`
 
-+ 安装`Rust`
+- 安装`Rust`
 
 ```bash
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
@@ -86,7 +86,7 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
 ```
 
-+ 设置`crate.io`镜像[RsProxy](https://rsproxy.cn/)
+- 设置`crate.io`镜像[RsProxy](https://rsproxy.cn/)
 
 `${DOT_FILE_DIR}/cargo` 下只存放了该配置文件
 
@@ -104,12 +104,11 @@ index = "https://rsproxy.cn/crates.io-index"
 git-fetch-with-cli = true
 ```
 
-+ 源码编译安装`neovide`
+- 源码编译安装`neovide`
 
 ```bash
 cargo install --git https://github.com/neovide/neovide
 ```
-
 
 ### `.zshrc`添加
 
@@ -123,7 +122,7 @@ alias vide="neovide"
 ## kitty
 
 What the most amazing，在0.37版本`kitty`引入了类似neovide的光标动画，虽然
-没有那么多特效，但是shell体验简直***amazing***。
+没有那么多特效，但是shell体验简直**_amazing_**。
 
 由于macos的`option`键和`Alt`键需要映射一下，这里的配置文件额外加入了macos相关。
 
@@ -157,6 +156,16 @@ ln -s ${DOT_FILE_DIR}/starship/starship.toml ~/.config/starship.toml
 ln -s ${DOT_FILE_DIR}/.clang-format ~/.clang-format
 ```
 
+## Zed
+
+`Zed`是一个轻量级的编辑器，并且以高性能著称，在本地运行情况下确实比vscode流畅的多。不过仍在发展，拓展也较少。
+比较舒服的是，大部分主流工具or语言是自带的，开箱即用。
+
+```bash
+ln -s ${DOT_FILE_DIR}/zed/settings.json ~/.config/zed/settings.json
+ln -s ${DOT_FILE_DIR}/zed/keymap.json ~/.config/zed/keymap.json
+```
+
 ## TODOS
 
-+ 完成该 dotfile 的 install 脚本.
+- 完成该 dotfile 的 install 脚本.
