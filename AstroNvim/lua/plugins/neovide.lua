@@ -22,6 +22,7 @@ else
 						neovide_scale_factor = 1,
 						neovide_cursor_vfx_particle_phase = 1.5,
 						neovide_cursor_smooth_blink = true,
+						neovide_window_blurred = true,
 
 						neovide_cursor_antialiasing = true,
 						-- configure padding
@@ -38,7 +39,7 @@ else
 			---@type AstroUIOpts
 			opts = {
 				-- change colorscheme
-				colorscheme = "vscode",
+				colorscheme = "catppuccin-latte",
 				-- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
 				-- Icons can be configured throughout the interface
 				icons = {

@@ -1,0 +1,71 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "ui_font_size": 14,
+    "tab_size": 4,
+    "buffer_font_size": 14,
+    "buffer_font_family": "FiraCode Nerd Font Mono",
+    "theme": {
+        "mode": "system",
+        "light": "Catppuccin Latte (Blur)",
+        "dark": "Catppuccin Mocha (Blur)"
+    },
+    "file_types": {
+        "CMake": ["CMake*"]
+    },
+    "vim_mode": true,
+    "scrollbar": {
+        "show": "never"
+    },
+    "indent_guides": {
+        "enabled": true
+    },
+    "hour_format": "hour24",
+    "inlay_hints": {
+        "enabled": true
+    },
+    "file_scan_exclusions": [
+        "**/.git",
+        "**/.svn",
+        "**/.hg",
+        "**/CVS",
+        "**/.DS_Store",
+        "**/Thumbs.db",
+        "**/.classpath",
+        "**/.settings",
+        // above is default from Zed
+        "**/out",
+        "**/dist",
+        "**/.husky",
+        "**/.turbo",
+        "**/.vscode-test",
+        "**/.vscode",
+        "**/.next",
+        "**/.storybook",
+        "**/.tap",
+        "**/.nyc_output",
+        "**/report",
+        "**/node_modules"
+    ],
+    "terminal": {
+        "font_family": "FiraCode Nerd Font Propo",
+        "font_size": 12,
+        "font_features": {
+            "calt": true
+        }
+    },
+    "languages": {
+        "Python": {
+            "indent_guides": {
+                "enabled": true,
+                "background_coloring": "indent_aware"
+            }
+        }
+    }
+}
