@@ -38,7 +38,7 @@
             "alt-c": "pane::CloseAllItems",
             "alt-v": "pane::SplitRight",
 
-            "space b b": "pane::GoBack",
+            "space b b": "tab_switcher::Toggle",
 
             // +LSP
             "space c r": "editor::Rename",

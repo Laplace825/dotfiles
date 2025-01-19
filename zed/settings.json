@@ -14,7 +14,7 @@
     "theme": {
         "mode": "system",
         "light": "Catppuccin Latte (Blur)",
-        "dark": "Catppuccin Mocha (Blur)"
+        "dark": "Catppuccin Frappé (Blur)"
     },
     "file_types": {
         "CMake": ["CMake*"]
