@@ -11,6 +11,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export EDITOR='nvim'
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 export https_proxy="http://127.0.0.1:7897"
 export http_proxy="http://127.0.0.1:7897"
 export all_proxy="socks5://127.0.0.1:7897"
