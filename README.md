@@ -42,8 +42,9 @@ brew install starship
 这里是我安装的一些常用工具
 
 ```bash
-brew install neovim eza fastfetch fzf fd bat glow lazygit
+brew install neovim eza fastfetch fzf fd bat lazygit thefuck zoxide
 brew install yazi zsh-autosuggestions zsh-syntax-highlighting
+# brew install zed typst tinymist typstyle 
 ```
 
 ## AstroNvim
