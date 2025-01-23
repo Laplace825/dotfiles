@@ -37,6 +37,10 @@
     "inlay_hints": {
         "enabled": true
     },
+    "tabs": {
+        "git_status": true,
+        "file_icons": true
+    },
     "file_scan_exclusions": [
         "**/.git",
         "**/.svn",
