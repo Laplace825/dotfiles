@@ -44,7 +44,6 @@ return {
 		-- enable servers that you already have installed without mason
 		servers = {
 			"clangd",
-			"pyright",
 			"rust_analyzer",
 			"gopls",
 		},
@@ -52,6 +51,18 @@ return {
 		---@diagnostic disable: missing-fields
 		config = {
 			clangd = { capabilities = { offsetEncoding = "utf-16" } },
+			pyright = {
+				capabilities = {
+					textDocument = {
+						publishDiagnostics = {
+							tagSupport = {
+								valueSet = { 2 },
+							},
+						},
+					},
+				},
+			},
+			ruff = {},
 			tinymist = {
 				-- custom configuration for tinymist
 				-- can be a function that takes the client and bufnr as arguments

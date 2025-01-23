@@ -9,8 +9,7 @@ end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- Set up custom filetypes
 vim.filetype.add({
 	extension = {
-		-- typ = "typst",
-		zshrc = "bash",
+		zshrc = "zsh",
 	},
 
 	-- filename = {

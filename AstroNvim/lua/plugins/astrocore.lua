@@ -25,6 +25,10 @@ return {
 		-- vim options can be configured here
 		options = {
 			opt = { -- vim.opt.<key>
+				tabstop = 4, -- sets vim.opt.tabstop
+				expandtab = true, -- sets vim.opt.expandtab
+				softtabstop = 4, -- Number of spaces inserted instead of a TAB character
+				shiftwidth = 4, -- Number of spaces inserted when indenting
 				relativenumber = true, -- sets vim.opt.relativenumber
 				number = true, -- sets vim.opt.number
 				spell = false, -- sets vim.opt.spell

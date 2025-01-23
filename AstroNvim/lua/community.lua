@@ -16,6 +16,8 @@ return {
 	{ import = "astrocommunity.project.projectmgr-nvim" },
 	{ import = "astrocommunity.completion.copilot-lua" },
 
+	{ import = "astrocommunity.recipes.vscode" },
+
 	--@NOTE: colorscheme
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.onedarkpro-nvim" },
