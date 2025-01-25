@@ -1,5 +1,4 @@
 export FPATH="${HOME}/.zfunc:${FPATH}"
-export FPATH="${HOME}/.docker/completions:${FPATH}"
 autoload -Uz compinit && compinit
 
 eval "$(starship init zsh)"
@@ -20,17 +19,17 @@ ZSHELL_ROOT_DIR=${DOT_FILE_DIR}/ZShell
 
 source "${ZSHELL_ROOT_DIR}/export.zsh"
 
-# vi mod 
-set -o vi 
+# vi mod
+set -o vi
 
 source "${ZSHELL_ROOT_DIR}/alias.zsh"
 
 # ctrl+/ to accept autosuggest
 bindkey "^_" autosuggest-accept
 
-function _source_dir(){
+function _source_dir() {
 	DIR="${ZSHELL_ROOT_DIR}/$1";if [ -d "$DIR" ]; then
-		for zf in $(/bin/ls "$DIR"/*.zsh 2>/dev/null); do
+		for zf in "$DIR"/*.zsh; do
 			[ -f "$zf" ] && source "$zf"
 		done
 	fi
