@@ -10,17 +10,23 @@
         "context": "ProjectPanel && not_editing",
         "bindings": {
             "a": "project_panel::NewFile",
-            "A": "project_panel::NewDirectory",
+
             "r": "project_panel::Rename",
-            "d": "project_panel::Delete",
+            "d": "project_panel::Trash",
+            "D": "project_panel::Delete",
             "x": "project_panel::Cut",
-            "c": "project_panel::Copy",
+            "y": "project_panel::Copy",
             "p": "project_panel::Paste",
+            "l": "project_panel::OpenPermanent",
+            "ctrl-d": "project_panel::SelectNextDirectory",
+            "ctrl-u": "project_panel::SelectPrevDirectory",
             // Navigate between panel
             "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
             "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
             "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "space d p": "project_panel::RemoveFromProject",
+            "space a p": "workspace::AddFolderToProject"
         }
     },
     {
@@ -38,7 +44,23 @@
             "alt-c": "pane::CloseAllItems",
             "alt-v": "pane::SplitRight",
 
+            "space a p": "workspace::AddFolderToProject",
+
+            // vim mode redo
+            "U": "vim::Redo",
+            "space g g": [
+                "task::Spawn",
+                { "task_name": "Start Lazygit", "reveal_target": "center" }
+            ],
+
+            // open terminal
+            "alt-1": "workspace::NewCenterTerminal",
+            "alt-2": "terminal_panel::ToggleFocus",
+            "alt-3": ["workspace::SendKeystrokes", "alt-v alt-1"],
+
             "space b b": "tab_switcher::Toggle",
+            "space b r": "pane::CloseItemsToTheRight",
+            "space b l": "pane::CloseItemsToTheLeft",
 
             // +LSP
             "space c r": "editor::Rename",
@@ -49,11 +71,25 @@
             "space g t": "editor::GoToTypeDefinition",
             "space g T": "editor::GoToTypeDefinitionSplit",
             "space g r": "editor::FindAllReferences",
+            "space l i": "editor::ToggleInlayHints",
+            "space l c": "editor::ShowSignatureHelp",
+
             // Symbol search
             "space s s": "outline::Toggle",
             "space f s": "project_symbols::Toggle",
             // Diagnostic
             "space x x": "diagnostics::Deploy"
+        }
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+            "alt-2": "terminal_panel::ToggleFocus",
+            "alt-c": "pane::CloseAllItems",
+            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
         }
     },
     {

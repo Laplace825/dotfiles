@@ -1,0 +1,16 @@
+[
+    {
+        "label": "Build C++ With CMake",
+        "command": "[ ! -d $ZED_WORKTREE_ROOT/build ] && mkdir -p $ZED_WORKTREE_ROOT/build; cmake . -B build -G Ninja; ninja -C build -v",
+        "reveal": "no_focus",
+        "hide": "on_success",
+        "shell": {
+            "program": "/bin/bash"
+        }
+    },
+    {
+        "label": "Start Lazygit",
+        "command": "lazygit -p $ZED_WORKTREE_ROOT",
+        "hide": "on_success"
+    }
+]
