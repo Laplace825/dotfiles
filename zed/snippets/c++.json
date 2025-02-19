@@ -1,0 +1,35 @@
+{
+    "main": {
+        "prefix": "main",
+        "body": ["int main(int argc, char* argv[]) {", "    return 0;", "}"],
+        "description": "Main function"
+    },
+    "println": {
+        "prefix": "println",
+        "body": ["std::println($1);"],
+        "description": "Standard Print line"
+    },
+    "class": {
+        "prefix": "class",
+        "body": [
+            "class ${1:ClassName} {",
+            "  private:",
+            "",
+            "  public:",
+            "    ${1:ClassName}();",
+            "    ~${1:ClassName}();",
+            "};"
+        ],
+        "description": "Define a Class"
+    },
+    "struct": {
+        "prefix": "struct",
+        "body": [
+            "struct ${1:StructName} {",
+            "  ${2:StructName}();",
+            "  ~${2:StructName}();",
+            "};"
+        ],
+        "description": "Define a Struct"
+    }
+}

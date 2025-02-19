@@ -7,10 +7,24 @@
 // from the command palette.
 [
     {
+        "context": "TabSwitcher",
+        "bindings": {
+            "alt-k": "menu::SelectPrev",
+            "alt-j": "menu::SelectNext"
+        }
+    },
+    {
+        "context": "Picker",
+        "bindings": {
+            "alt-k": "menu::SelectPrev",
+            "alt-j": "menu::SelectNext"
+        }
+    },
+    {
         "context": "ProjectPanel && not_editing",
         "bindings": {
             "a": "project_panel::NewFile",
-
+            "A": "project_panel::NewDirectory",
             "r": "project_panel::Rename",
             "d": "project_panel::Trash",
             "D": "project_panel::Delete",
@@ -21,12 +35,13 @@
             "ctrl-d": "project_panel::SelectNextDirectory",
             "ctrl-u": "project_panel::SelectPrevDirectory",
             // Navigate between panel
-            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
             "space d p": "project_panel::RemoveFromProject",
-            "space a p": "workspace::AddFolderToProject"
+            "space a p": "workspace::AddFolderToProject",
+            "space e": "workspace::ToggleLeftDock"
         }
     },
     {
@@ -35,16 +50,18 @@
             // put key-bindings here if you want them to work only in normal mode
             // Window movement bindings
             // Ctrl jklk to move between panes
-            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
             "space m p": "markdown::OpenPreviewToTheSide",
             "alt-h": "pane::SplitUp",
             "alt-c": "pane::CloseAllItems",
             "alt-v": "pane::SplitRight",
 
             "space a p": "workspace::AddFolderToProject",
+
+            "space e": "workspace::ToggleLeftDock",
 
             // vim mode redo
             "U": "vim::Redo",
@@ -84,12 +101,11 @@
     {
         "context": "Terminal",
         "bindings": {
-            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
             "alt-2": "terminal_panel::ToggleFocus",
-            "alt-c": "pane::CloseAllItems",
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+            "alt-c": "pane::CloseAllItems"
         }
     },
     {
