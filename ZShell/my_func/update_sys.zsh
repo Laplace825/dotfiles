@@ -5,4 +5,6 @@ function update_sys() {
   ya pack -u
 
   rustup update
+
+  conda self-update
 }
