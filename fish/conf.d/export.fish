@@ -27,3 +27,5 @@ set -gx RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
 
 # bat theme
 set -gx BAT_THEME OneHalfDark
+
+set -gx PATH $PATH "$HOME/.nvm/versions/node/v23.1.0/bin"
