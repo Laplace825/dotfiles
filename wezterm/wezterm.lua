@@ -13,7 +13,6 @@ config = {
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",
 	show_new_tab_button_in_tab_bar = false,
-	quick_select_mode = true,
 	window_background_opacity = 0.7,
 	macos_window_background_blur = 40,
 	text_background_opacity = 1,
