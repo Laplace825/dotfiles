@@ -1,172 +1,150 @@
-# My dotfile The MacOS Branch
+# Dotfiles (macOS Branch)
 
-## install
+## Installation
 
-以后可能会写成一个简单的脚本，不过选择仍然需要手动配置。
+This configuration may later be written as a simple script, but manual configuration is still required for now.
 
-**请注意**，下面会将仓库clone到`${HOME}/dotfiles`中。
+**Note**: The following command will clone the repository to `${HOME}/dotfiles`.
 
 ```bash
 git clone -b macos --depth 1 https://github.com/Laplace825/dotfiles.git ~/dotfiles/
 ```
 
-我在`.zshrc`文件中export了一些环境变量。你可以选择先配置zsh，或者先在bash中export。
+I have exported some environment variables in the `.zshrc` file. You can choose to configure zsh first or export them in bash first:
 
 ```bash
 export DOT_FILE_DIR="${HOME}/dotfiles"
 ```
 
+*Because I have immigrated to fish, so zshrc just exce fish*, you will find like `set -gx $DOT_FILE_DIR ~/dotfiles` in config.fish.
+
+## CLI Tools
+
+Common tools I use. Some of are optional to choose but those I do not comment are highly recommended to install.
+
+```bash
+brew install \
+    neovim \
+    eza \
+    fastfetch \
+    fzf \
+    fd \
+    bat \
+    lazygit \
+    zoxide \
+    starship \
+    yazi \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting
+# brew uv micromamba zed (optinal)
+```
+
+## fish (optinal)
+
+If you want to use fish also, you could install the [fisher](https://github.com/jorgebucaran/fisher)  to manage fish's
+plugins.
+
+Use this below to link the config file to your fish.
+
+```bash
+ln -s "$DOT_FILE_DIR/fish" ~/.config/fish
+```
+
+Because I use micromamba, uv, starship, fastfetch and zoxide, their fish integral
+has already written in `config.fish`. You can comment which you don't need.
+
+### catppuccin (optional)
+
+I really like Catppuccin Theme. So I use it in my fish also with `Catppuccin Mocha`.
+
+```bash
+fisher install catppuccin/fish
+
+fish_config theme save "Catppuccin Mocha"
+```
+
+### about nvm 
+
+I must use node and nvm. And I currently use `node v23.1.0`, nvm officially does not provide
+fish integral, so I use `fisher` to install [nvm.fish](https://github.com/jorgebucaran/nvm.fish) and 'export' node to `$PATH`
+in `export.fish`. *You will need to change the node's PATH if you use a different node version*.
+
 ## Zshell
 
-- 安装`oh-my-zsh`(optional)
-
-可用选择使用`omz`的配置，或者使用`starship`
-
-```bash
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-# 国内源
-sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"
-```
-
-- 安装`starship`(optional)
-
-```bash
-brew install starship
-```
-
-在`zshrc`文件中已经添加了`starship`的启动初始化，当然，下面的`zsh-autosuggestions`和`zsh-syntax-highlighting`也已经添加。
-
-- 安装CLI工具
-
-这里是我安装的一些常用工具
-
-```bash
-brew install neovim eza fastfetch fzf fd bat lazygit thefuck zoxide
-brew install yazi zsh-autosuggestions zsh-syntax-highlighting
-# brew install zed typst tinymist typstyle 
-```
+The starship initialization has already been added to the zshrc file,
+along with plugins like zsh-autosuggestions and zsh-syntax-highlighting.
 
 ## AstroNvim
-
 ```bash
-#  将原来的 nvim 配置备份(optional but Recommand)
+# Backup existing nvim config (optional but recommended)
 mv ~/.config/nvim ~/.config/nvim.bak
-
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 
+# Initialize AstroNvim
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
-# 启动进行一些初始化工作
+# Run nvim to perform initial setup
 nvim
 
-# 将 ${DOT_FILE_DIR}/AstroNvim/lua 内容按需链接 ~/.config/nvim/lua/ 下
+# Symlink custom configurations (replace <Which> with actual paths)
 ln -s ${DOT_FILE_DIR}/AstroNvim/lua/<Which> ~/.config/nvim/lua/<Which>
-
 ```
 
-## 安装`neovide`
-
-### 基于`brew`
+## Neovide Installation
 
 ```bash
 brew install neovide
 ```
 
-### 基于`Cargo`
+## Zshrc Customization
 
-- 安装`Rust`
-
-```bash
-export RUSTUP_DIST_SERVER="https://rsproxy.cn"
-export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-
-curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
-```
-
-- 设置`crate.io`镜像[RsProxy](https://rsproxy.cn/)
-
-`${DOT_FILE_DIR}/cargo` 下只存放了该配置文件
+Optional: Use the repo's .zshrc directly or add this alias:
 
 ```bash
-# in ~/.cargo/config.toml
-[source.crates-io]
-replace-with = 'rsproxy-sparse'
-[source.rsproxy]
-registry = "https://rsproxy.cn/crates.io-index"
-[source.rsproxy-sparse]
-registry = "sparse+https://rsproxy.cn/index/"
-[registries.rsproxy]
-index = "https://rsproxy.cn/crates.io-index"
-[net]
-git-fetch-with-cli = true
-```
-
-- 源码编译安装`neovide`
-
-```bash
-cargo install --git https://github.com/neovide/neovide
-```
-
-### `.zshrc`添加
-
-这里也可以不进行添加，直接使用repo的`.zshrc`也行，但是可能你想自定义。
-
-```bash
-# 默认启用 AstroNvim 配置
 alias vide="neovide"
 ```
 
-## kitty
+## Kitty Terminal
 
-What the most amazing，在0.37版本`kitty`引入了类似neovide的光标动画，虽然
-没有那么多特效，但是shell体验简直**_amazing_**。
-
-由于macos的`option`键和`Alt`键需要映射一下，这里的配置文件额外加入了macos相关。
+Kitty 0.37+ supports cursor animations similar to Neovide. Includes macOS-specific key mappings:
 
 ```bash
-ln -s ${DOT_FILE_DIR}/kitty  ~/.config/kitty
+ln -s ${DOT_FILE_DIR}/kitty ~/.config/kitty
 ```
 
-## WezTerm with Starship
-
-### WezTerm
-
-`WezTerm`相关配置直接链接就行，键位都是默认的。
+## WezTerm + Starship
 
 ```bash
+# Symlink WezTerm config
 ln -s ${DOT_FILE_DIR}/wezterm ~/.config/wezterm
+
+ln -s ${DOT_FILE_DIR}/starship/starship.toml.default ~/.config/starship.toml
 ```
 
-### Starship
+## Yazi
 
-使用的主题是 `preset` 的`MacOS`主题，当然，`starship`文件夹下还有另一个预设主题。把想使用的主题文件名改为`starship.toml`即可。
+[Yazi](https://github.com/sxyazi/yazi) is a great TUI software act as a file manager written in Rust.
+The alias `y` and config are already integrated into fish and zshrc in these dotfiles.
 
-```bash
-ln -s ${DOT_FILE_DIR}/starship/starship.toml ~/.config/starship.toml
-```
-
-## clang-format
-
-为了方便我直接丢在`${HOME}` 下，所以直接做的链接。
+## Clang-Format (optional)
 
 ```bash
 ln -s ${DOT_FILE_DIR}/.clang-format ~/.clang-format
 ```
 
-## Zed
+## Zed Editor (optional)
 
-`Zed`是一个轻量级的编辑器，并且以高性能著称，在本地运行情况下确实比vscode流畅的多。不过仍在发展，拓展也较少。
-比较舒服的是，大部分主流工具or语言是自带的，开箱即用。
+Lightweight high-performance editor with minimal configuration:
 
 ```bash
 ln -s ${DOT_FILE_DIR}/zed/settings.json ~/.config/zed/settings.json
 ln -s ${DOT_FILE_DIR}/zed/keymap.json ~/.config/zed/keymap.json
+ln -s ${DOT_FILE_DIR}/zed/tasks.json ~/.config/zed/tasks.json
 ```
 
 ## TODOS
 
-- 完成该 dotfile 的 install 脚本.
+- Create an installation script for these dotfiles
