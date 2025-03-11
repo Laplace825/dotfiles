@@ -15,8 +15,7 @@ set -gx CXX "/opt/homebrew/opt/llvm/clang++"
 # preferred editor
 set -gx EDITOR 'nvim'
 
-set -gx PATH "$HOME/.local/bin" $PATH
-set -gx PATH $PATH "$HOME/go/bin"
+set -gx PATH "$HOME/go/bin" $PATH 
 set -gx https_proxy "http://127.0.0.1:7897"
 set -gx http_proxy "http://127.0.0.1:7897"
 set -gx all_proxy "socks5://127.0.0.1:7897"
@@ -28,4 +27,5 @@ set -gx RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
 # bat theme
 set -gx BAT_THEME OneHalfDark
 
-set -gx PATH $PATH "$HOME/.nvm/versions/node/v23.1.0/bin"
+set -gx PATH "$HOME/.nvm/versions/node/v23.1.0/bin" $PATH 
+set -gx PATH "$HOME/.local/bin" $PATH

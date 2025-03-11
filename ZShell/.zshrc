@@ -1,8 +1,4 @@
-function RunFish () {
-	exec fish
-}
-
-RunFish
+exec fish
 
 # export FPATH="${HOME}/.zfunc:${FPATH}"
 # autoload -Uz compinit && compinit
