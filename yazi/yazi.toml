@@ -13,12 +13,24 @@ prepend_previewers = [
     { mime = "application/x-7z-compressed", run = "ouch" },
     { mime = "application/x-rar", run = "ouch" },
     { mime = "application/x-xz", run = "ouch" },
+    { name = "*.csv", run = "duckdb" },
+    { name = "*.tsv", run = "duckdb" },
+    { name = "*.json", run = "duckdb" },
+    { name = "*.parquet", run = "duckdb" },
 ]
-[preview]
-max_width = 2000
-max_height = 2000
+prepend_preloaders = [
+    { name = "*.csv", run = "duckdb", multi = false },
+    { name = "*.tsv", run = "duckdb", multi = false },
+    { name = "*.json", run = "duckdb", multi = false },
+    { name = "*.parquet", run = "duckdb", multi = false },
+]
 
 [[plugin.prepend_fetchers]]
-id = "git"
+id   = "git"
 name = "*"
-run = "git"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"

@@ -29,3 +29,4 @@ set -gx BAT_THEME OneHalfDark
 
 set -gx PATH "$HOME/.nvm/versions/node/v23.1.0/bin" $PATH 
 set -gx PATH "$HOME/.local/bin" $PATH
+set -gx NVM_DIR "$HOME/.nvm"

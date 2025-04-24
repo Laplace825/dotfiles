@@ -3,7 +3,8 @@
 
 ## plugins
 
-#  yazi-rs/plugins:max-preview
+ 
+# "yazi-rs/plugins:toggle-pane"
 #  Reledia/glow
 #  AnirudhG07/nbpreview
 #  hankertrix/augment-command
@@ -16,7 +17,7 @@
 # `ya` is a package mananger provided by `yazi` .
 
 packages=(
-  "yazi-rs/plugins:max-preview"
+  "yazi-rs/plugins:toggle-pane"
   "AnirudhG07/nbpreview"
   "hankertrix/augment-command"
   "yazi-rs/plugins:git"

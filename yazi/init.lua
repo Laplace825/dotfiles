@@ -35,8 +35,8 @@ end, 500, Status.RIGHT)
 require("git"):setup()
 
 -- @note: This should wait for yazi to upgrade above v0.3.3
-THEME.git = THEME.git or {}
-THEME.git.untracked_sign = "✘" -- the x's unicode value
+th.git = th.git or {}
+th.git.untracked = "✘" -- the x's unicode value
 
 require("full-border"):setup({
 	type = ui.Border.ROUNDED,

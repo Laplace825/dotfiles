@@ -1,6 +1,7 @@
 set -gx DOT_FILE_DIR "$HOME/dotfiles"
 fish_vi_key_bindings
 
+thefuck --alias | source
 zoxide init fish | source
 starship init fish | source
 uv generate-shell-completion fish | source

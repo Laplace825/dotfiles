@@ -1,8 +1,14 @@
+export FPATH="${HOME}/.zfunc:${FPATH}"
+autoload -Uz compinit && compinit
+# @note: DOT_FILE_DIR
+export DOT_FILE_DIR="${HOME}/dotfiles"
+
+ZSHELL_ROOT_DIR=${DOT_FILE_DIR}/ZShell
+
+source "${ZSHELL_ROOT_DIR}/export.zsh"
+
 exec fish
 
-# export FPATH="${HOME}/.zfunc:${FPATH}"
-# autoload -Uz compinit && compinit
-#
 # eval "$(starship init zsh)"
 #
 # # the z jump tool
@@ -13,13 +19,6 @@ exec fish
 # source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 #
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-#
-# # @note: DOT_FILE_DIR
-# export DOT_FILE_DIR="${HOME}/dotfiles"
-#
-# ZSHELL_ROOT_DIR=${DOT_FILE_DIR}/ZShell
-#
-# source "${ZSHELL_ROOT_DIR}/export.zsh"
 #
 # # vi mod
 # set -o vi
