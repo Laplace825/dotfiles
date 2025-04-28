@@ -205,7 +205,7 @@ export NVM_DIR="$HOME/.nvm"
 # the z jump tool
 eval "$(zoxide init zsh)"
 
-export PATH="${PATH}:${HOME}/app/cs149/ispc/bin"
+# export PATH="${PATH}:${HOME}/app/cs149/ispc/bin"
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
