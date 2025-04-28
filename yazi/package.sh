@@ -19,9 +19,10 @@ packages=(
   "yazi-rs/plugins:max-preview"
   "AnirudhG07/nbpreview"
   "hankertrix/augment-command"
-  "yazi-rs/plugins:git"
+  # "yazi-rs/plugins:git"
   "Ape/simple-status"
   "KKV9/command"
+  "ndtoan96:ouch"
   "yazi-rs/plugins:full-border"
 )
 for i in "${packages[@]}"; do 

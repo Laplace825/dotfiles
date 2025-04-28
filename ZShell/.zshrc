@@ -1,3 +1,6 @@
+export FPATH="${HOME}/.zfunc:${FPATH}"
+autoload -Uz compinit && compinit
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -81,9 +84,8 @@ plugins=(
 	git
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
-	# archlinux
+	archlinux
     vi-mode
-    poetry
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -118,13 +120,8 @@ export MY_LVIM_CONFIG_FOLDER="$HOME/.config/lvim"
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
-# Add user py env
-# export PATH="$PATH:$HOME/usr_pyenv/bin/"
-# source "$HOME/usr_pyenv/bin/activate"
-
 # completion for pipx
 # eval "$(register-python-argcomplete pipx)"
-
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -140,6 +137,7 @@ alias l="ls -lah"
 alias cat="bat -p"
 alias show-pic="kitty +kitten icat"
 alias tree="eza --tree --ignore-glob .git"
+alias cls="clear"
 
 # @note: neovide with AstroNvim (default use nvim)
 alias vide="neovide"
@@ -186,20 +184,6 @@ _fzf_comprun(){
     esac
 }
 
-export WALLPAPER_ENGINE_ASSETS="${HOME}/.local/share/Steam/steamapps/common/wallpaper_engine/assets"
-export WALLPAPER_CONTENT="$HOME/.local/share/Steam/steamapps/workshop/content"
-
-function dwall() {
-    local sel_file=$(ls -D --icons=never $WALLPAPER_CONTENT/431960 | fzf --preview-window=down:70% --preview "kitty +kitten icat $WALLPAPER_CONTENT/431960/{}/preview.gif")
-    linux-wallpaperengine --disable-mouse --clamping border --silent --assets-dir "$WALLPAPER_ENGINE_ASSETS $WALLPAPER_CONTENT/431960/$sel_file" $1 $2 
-}
-
-function show-wall(){
-    local files=$(find $WALLPAPER_CONTENT/431960/ -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" \) -print)
-    local file=$(echo $files | fzf --preview "kitty +kitten icat {}" --preview-window=down)
-    kitty +kitten icat $file
-}
-
 # yazi file manager
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -223,6 +207,17 @@ eval "$(zoxide init zsh)"
 
 export PATH="${PATH}:${HOME}/app/cs149/ispc/bin"
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/usr/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/lap/.local/share/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+alias conda="micromamba"
