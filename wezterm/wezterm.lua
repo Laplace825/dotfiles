@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 
 config = {
-	font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Medium", style = "Normal" }),
+	font = wezterm.font("Maple Mono NF CN", { weight = "Medium", style = "Normal" }),
 	-- font = wezterm.font("JetBrains Mono", { weight = "Medium", style = "Normal" }),
 	font_size = 16,
 	color_scheme = "Catppuccin Mocha",

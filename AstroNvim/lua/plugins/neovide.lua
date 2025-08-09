@@ -15,12 +15,13 @@ else
 					},
 					g = { -- configure vim.g variables
 						-- configure scaling
-						neovide_transparency = 0.95,
+						neovide_opacity = 0.95,
 						neovide_refresh_rate = 60,
 						neovide_cursor_vfx_mode = "railgun",
-						neovide_cursor_vfx_particle_density = 80.0,
+						neovide_cursor_vfx_particle_density = 10,
+						neovide_cursor_vfx_opacity = 100.0,
 						neovide_scale_factor = 1,
-						neovide_cursor_vfx_particle_phase = 1.5,
+						neovide_cursor_vfx_particle_phase = 0.1,
 						neovide_cursor_smooth_blink = true,
 						neovide_window_blurred = true,
 

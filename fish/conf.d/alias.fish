@@ -13,4 +13,4 @@ abbr -a gdiff git difftool --no-symlinks --dir-diff
 abbr -a vide neovide
 abbr -a cls clear
 
-alias conda="micromamba"
+# alias conda="micromamba"
