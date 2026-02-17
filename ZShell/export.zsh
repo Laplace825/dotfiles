@@ -5,11 +5,12 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 # @note: for llvm
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind -L/opt/homebrew/opt/libomp/lib"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/lld/bin:$PATH"
 # export LDFLAGS="c++"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/libomp/include"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 export C="/opt/homebrew/opt/llvm/bin/clang"
 export CXX="/opt/homebrew/opt/llvm/clang++"
 export OpenMP_ROOT=$(brew --prefix)/opt/libomp
