@@ -1,3 +1,1 @@
-return {
-	{ "kevinhwang91/nvim-ufo", enabled = false },
-}
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE

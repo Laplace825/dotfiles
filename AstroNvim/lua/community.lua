@@ -4,9 +4,9 @@
 
 ---@type LazySpec
 return {
-	"AstroNvim/astrocommunity",
-	--@NOTE: language pack
-	{ import = "astrocommunity.pack.lua" },
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.pack.lua" },
+  -- import/override with your plugins folder
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.cmake" },
 	{ import = "astrocommunity.pack.bash" },
