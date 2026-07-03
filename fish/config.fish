@@ -17,4 +17,4 @@ end
 if status is-interactive
 end
 
-# nvm use lts/jod
+nvm use lts/jod
