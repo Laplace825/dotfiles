@@ -1,0 +1,64 @@
+# Productivity pipeline: dim inactive panes, flash on pane focus, pulse on
+# bell, tab transition, cursor trail, idle dim.
+# Groups run in order, each feeding the next. Idle cost is zero: every group
+# is either static or event-driven.
+
+# 1. Dim inactive windows toward gray instead of black (static, redraws only
+#    when content or shader events change). Same shader as dim-inactive-windows.
+startgroup
+    animation_step 0
+    var float HIGHLIGHT_INTENSITY = 0
+    var float BORDER_WIDTH = 0
+    var float INACTIVE_DIM = 0.74
+    var float3 INACTIVE_DIM_COLOR = float3(0.2158605)
+    var bool DIM_CENTRAL_AREA_ONLY = true
+    var bool INCLUDE_WINDOW_PADDING = true
+    shaders focus-highlight
+endgroup
+
+# 2. Brief highlight of the newly focused pane when pane focus changes.
+#    INACTIVE_DIM=1.0 leaves other panes to group 1's static dimming.
+startgroup
+    animation_start window-focus-in
+    animation_stop 750
+    animation_curve ease-in
+    animation_step 16
+    var float HIGHLIGHT_INTENSITY = 0.25
+    var float BORDER_WIDTH = 0.03
+    var float INACTIVE_DIM = 1.0
+    var bool DIM_CENTRAL_AREA_ONLY = true
+    var bool INCLUDE_WINDOW_PADDING = true
+    shaders focus-highlight
+endgroup
+
+# 3. Breathing glow around the window that received a bell.
+startgroup
+    animation_start bell-in-window
+    animation_stop 1800
+    animation_curve linear
+    animation_step 16
+    shaders bell-pulse
+endgroup
+
+# 4. Brief fade-in when switching tabs.
+startgroup
+    animation_start tab-change
+    animation_stop 250
+    animation_curve ease-out
+    animation_step 16
+    shaders tab-transition
+endgroup
+
+# 5. Blaze cursor trail.
+startgroup
+    animation_start cursor-trail-move
+    animation_stop cursor-trail-stop
+    shaders cursor-trail-blaze
+endgroup
+
+# 6. Dim the screen while the user is idle.
+startgroup
+    animation_start user-idle
+    animation_stop user-activity
+    shaders idle-dim
+endgroup
